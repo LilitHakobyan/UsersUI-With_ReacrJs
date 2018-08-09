@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './App.css';
 
-const Card = (props) => {
+const User = (props) => {
     console.log(props.isActive);
     let active;
     let admin;
@@ -16,17 +16,7 @@ const Card = (props) => {
        else
        admin="X";
 
-  return (     
-    //   <div style={{ margin: '1em' }}>
-    //       <img width="75" alt="X" src={props.avatar_url} />
-    //       <div style={{ display: 'inline-block', marginLeft: 10 }}>
-    //           <div> {props.fullName} </div>
-    //           <div> {props.emailAddress} </div>
-    //           <div> {active} </div> 
-    //           <div> {admin} </div>
-    //       </div>
-    //   </div>
- 
+  return (  
     <tr>
     <td> X V </td>
     <td> {props.fullName}</td>
@@ -37,12 +27,8 @@ const Card = (props) => {
   );
 };
 
-const CardList = (props) => {
-
+const UserList = (props) => {
   return (
-    //   <div>
-    //       {props.cards.map(card => <Card {...card} />)}
-    //   </div>
     <div className="container">
     <div className="row">
       <div className="col s12 board">
@@ -55,10 +41,9 @@ const CardList = (props) => {
            <th>Active?</th>
            <th>Admin?</th>
           </tr>
-          </thead>
-           {/* {rows} */}         
+          </thead>       
           <tbody>
-            {props.cards.map(card => <Card {...card} />)}
+            {props.users.map(user => <User {...user} />)}
            </tbody>
          </table>
       </div>
@@ -84,16 +69,15 @@ class Form extends React.Component {
   }
 }
 
-
 class App extends React.Component {
 
   state={
-    cards:[ ]
+    users:[]
   };
-  addNewCard=(cardInfo)=>
+  addNewCard=(userInfo)=>
   {
       this.setState(prevState =>({
-          cards: prevState.cards.concat(cardInfo)
+          users: prevState.users.concat(userInfo)
       }));
   };
 
@@ -101,7 +85,7 @@ class App extends React.Component {
       return (
           <div>
               <Form onSubmit={this.addNewCard}/>
-              <CardList cards={this.state.cards}/>
+              <UserList users={this.state.users}/>
           </div>
       );
   }
