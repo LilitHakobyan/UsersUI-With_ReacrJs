@@ -18,8 +18,18 @@ const User = (props) => {
 
   return (  
     <tr>
-    <td> X V </td>
-    <td> {props.fullName}</td>
+    <td>
+    <a id="edituser" title="Edit User" class="editlink actionButton" href="">
+							    <i class="fa fa-lg fa-edit fa-webdocs-dark-blue"> V </i>
+    <a id="deleteuser" title="Delete User" class="delete actionButton" href="">
+                    <i class="fa fa-lg fa-close fa-webdocs-dark-blue"> X </i>
+							</a>
+			</a>
+      </td>
+    <td><a href="" title="Edit User">
+               {props.fullName} 
+				</a>
+      </td>
     <td>{props.emailAddress}</td>
     <td>{active}</td>
     <td >{admin}</td>    

@@ -65,3 +65,15 @@ tbody tr td:first-child {
   background-color: #edf2fc;
   border-right: 1px solid #aaa;
 }
+
+
+
+tbody tr td:nth-child(2) {
+    max-width: 100px;
+    overflow: hidden;
+    padding: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #369;
+    text-decoration: none;
+}
